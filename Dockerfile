@@ -12,6 +12,8 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENV ASPNETCORE_HTTP_PORTS=8080
+# Evita crashes (SIGSEGV) del runtime .NET en el sandbox de contenedores de Render.
+ENV DOTNET_EnableWriteXorExecute=0
 EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "TecnoGasHogar.dll"]

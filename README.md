@@ -64,6 +64,8 @@ en la raíz del repositorio.
   liviana `mcr.microsoft.com/dotnet/aspnet:10.0`.
 - El contenedor expone el puerto **8080** (`ASPNETCORE_HTTP_PORTS=8080`), que es el puerto
   que Render detecta automáticamente a través del `EXPOSE 8080` del Dockerfile.
+- `DOTNET_EnableWriteXorExecute=0`: evita que el runtime de .NET falle con `SIGSEGV` (exit
+  code 139) al iniciar dentro del sandbox de contenedores de Render.
 
 ### Nota sobre SQLite en Render (plan Free)
 
