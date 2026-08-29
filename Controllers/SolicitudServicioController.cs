@@ -26,6 +26,11 @@ public class SolicitudServicioController : Controller
             .OrderByDescending(s => s.FechaRegistro)
             .ToListAsync();
 
+        ViewBag.TotalSolicitudes = solicitudes.Count;
+        ViewBag.ConteoPorTipo = TiposServicio
+            .Select(tipo => (Tipo: tipo, Cantidad: solicitudes.Count(s => s.TipoServicio == tipo)))
+            .ToList();
+
         return View(solicitudes);
     }
 
