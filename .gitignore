@@ -1,0 +1,22 @@
+## .NET
+bin/
+obj/
+out/
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+
+## Bases de datos SQLite generadas en tiempo de ejecución
+*.db
+*.db-shm
+*.db-wal
+
+## Logs
+*.log
+
+## macOS / Windows basura de SO
+.DS_Store
+Thumbs.db
