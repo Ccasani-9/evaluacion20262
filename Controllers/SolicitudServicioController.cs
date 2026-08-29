@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TecnoGasHogar.Data;
 using TecnoGasHogar.Models;
 
@@ -17,6 +18,15 @@ public class SolicitudServicioController : Controller
     public SolicitudServicioController(AppDbContext context)
     {
         _context = context;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var solicitudes = await _context.SolicitudesServicio
+            .OrderByDescending(s => s.FechaRegistro)
+            .ToListAsync();
+
+        return View(solicitudes);
     }
 
     [HttpGet]
@@ -40,6 +50,6 @@ public class SolicitudServicioController : Controller
         await _context.SaveChangesAsync();
 
         TempData["MensajeExito"] = "Solicitud registrada correctamente.";
-        return RedirectToAction(nameof(Create));
+        return RedirectToAction(nameof(Index));
     }
 }

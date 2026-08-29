@@ -1,0 +1,51 @@
+@model IEnumerable<TecnoGasHogar.Models.SolicitudServicio>
+
+@{
+    ViewData["Title"] = "Solicitudes de Servicio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["MensajeExito"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["MensajeExito"]
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nueva Solicitud</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>Aún no hay solicitudes registradas.</p>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Cliente)</th>
+                <th>@Html.DisplayNameFor(m => m.Telefono)</th>
+                <th>@Html.DisplayNameFor(m => m.Distrito)</th>
+                <th>@Html.DisplayNameFor(m => m.TipoServicio)</th>
+                <th>@Html.DisplayNameFor(m => m.Descripcion)</th>
+                <th>@Html.DisplayNameFor(m => m.FechaRegistro)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var solicitud in Model)
+            {
+                <tr>
+                    <td>@solicitud.Cliente</td>
+                    <td>@solicitud.Telefono</td>
+                    <td>@solicitud.Distrito</td>
+                    <td>@solicitud.TipoServicio</td>
+                    <td>@solicitud.Descripcion</td>
+                    <td>@solicitud.FechaRegistro.ToString("dd/MM/yyyy HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
