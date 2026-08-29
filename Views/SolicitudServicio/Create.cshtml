@@ -4,49 +4,52 @@
     ViewData["Title"] = "Nueva Solicitud de Servicio";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+        <div class="tg-card p-4 p-md-5">
+            <h2 class="mb-1">📝 @ViewData["Title"]</h2>
+            <p class="text-muted mb-4">Completa los datos del cliente para registrar el pedido.</p>
 
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Cliente" class="control-label"></label>
-                <input asp-for="Cliente" class="form-control" />
-                <span asp-validation-for="Cliente" class="text-danger"></span>
-            </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Cliente" class="form-label fw-semibold"></label>
+                    <input asp-for="Cliente" class="form-control" placeholder="Nombre completo del cliente" />
+                    <span asp-validation-for="Cliente" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Telefono" class="form-label fw-semibold"></label>
+                    <input asp-for="Telefono" class="form-control" placeholder="9XXXXXXXX" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Distrito" class="control-label"></label>
-                <input asp-for="Distrito" class="form-control" />
-                <span asp-validation-for="Distrito" class="text-danger"></span>
-            </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Distrito" class="form-label fw-semibold"></label>
+                    <input asp-for="Distrito" class="form-control" placeholder="Ej. San Juan de Lurigancho" />
+                    <span asp-validation-for="Distrito" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="TipoServicio" class="control-label"></label>
-                <select asp-for="TipoServicio" asp-items="ViewBag.TiposServicio" class="form-control">
-                    <option value="">-- Seleccione --</option>
-                </select>
-                <span asp-validation-for="TipoServicio" class="text-danger"></span>
-            </div>
+                <div class="form-group mb-3">
+                    <label asp-for="TipoServicio" class="form-label fw-semibold"></label>
+                    <select asp-for="TipoServicio" asp-items="ViewBag.TiposServicio" class="form-select">
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                    <span asp-validation-for="TipoServicio" class="text-danger"></span>
+                </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Descripcion" class="form-label fw-semibold"></label>
+                    <textarea asp-for="Descripcion" class="form-control" rows="3" placeholder="Detalles del pedido (opcional)"></textarea>
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Registrar Solicitud" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrar Solicitud</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

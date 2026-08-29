@@ -1,3 +1,10 @@
+:root {
+  --tg-blue: #0b5ed7;
+  --tg-blue-dark: #084298;
+  --tg-orange: #fd7e14;
+  --tg-bg: #f4f7fb;
+}
+
 html {
   font-size: 14px;
 }
@@ -6,6 +13,68 @@ html {
   html {
     font-size: 16px;
   }
+}
+
+body {
+  background-color: var(--tg-bg);
+}
+
+/* Navbar */
+.tg-navbar {
+  background: linear-gradient(90deg, var(--tg-blue-dark), var(--tg-blue));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tg-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff !important;
+}
+
+.tg-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+}
+
+.tg-navbar .nav-link:hover {
+  color: #fff !important;
+}
+
+/* Hero */
+.tg-hero {
+  background: linear-gradient(135deg, var(--tg-blue-dark), var(--tg-blue));
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.tg-hero .btn-light {
+  font-weight: 600;
+}
+
+/* Cards */
+.tg-card {
+  background: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Tabla de solicitudes */
+.tg-table thead {
+  background-color: var(--tg-blue-dark);
+  color: #fff;
+}
+
+.tg-table tbody tr:hover {
+  background-color: rgba(11, 94, 215, 0.06);
+}
+
+/* Footer */
+.tg-footer {
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {

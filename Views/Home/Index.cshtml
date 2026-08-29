@@ -1,8 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="tg-hero text-center">
+    <h1 class="display-5 fw-bold">TecnoGas Hogar</h1>
+    <p class="lead mb-4">Portal interno de solicitudes de servicio técnico: instalación, mantenimiento, revisión y atención de fugas.</p>
+    <a asp-controller="SolicitudServicio" asp-action="Create" class="btn btn-light btn-lg me-2">Registrar Solicitud</a>
+    <a asp-controller="SolicitudServicio" asp-action="Index" class="btn btn-outline-light btn-lg">Ver Solicitudes</a>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="tg-card p-4 h-100">
+            <h5>📋 Registro rápido</h5>
+            <p class="text-muted mb-0">El personal de atención registra cada solicitud que llega por WhatsApp o teléfono en segundos.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="tg-card p-4 h-100">
+            <h5>🔍 Consulta centralizada</h5>
+            <p class="text-muted mb-0">Todas las solicitudes quedan en un solo lugar, ordenadas por fecha de registro.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="tg-card p-4 h-100">
+            <h5>🛠️ Sin más papel ni WhatsApp</h5>
+            <p class="text-muted mb-0">Se acabó perder pedidos: toda la información queda guardada en la base de datos.</p>
+        </div>
+    </div>
 </div>
