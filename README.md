@@ -66,6 +66,10 @@ en la raíz del repositorio.
   que Render detecta automáticamente a través del `EXPOSE 8080` del Dockerfile.
 - `DOTNET_EnableWriteXorExecute=0`: evita que el runtime de .NET falle con `SIGSEGV` (exit
   code 139) al iniciar dentro del sandbox de contenedores de Render.
+- `DOTNET_hostBuilder__reloadConfigOnChange=false`: desactiva el `FileSystemWatcher` que
+  ASP.NET Core usa para recargar `appsettings.json` en caliente. El sandbox de Render limita
+  fuertemente los `inotify` del sistema, y esa vigilancia de archivos hacía crashear la app
+  apenas arrancaba (`IOException: configured user limit on inotify instances`).
 
 ### Nota sobre SQLite en Render (plan Free)
 
